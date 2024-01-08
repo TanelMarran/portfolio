@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+h1,
+.h1 {
+  font-family: $font-family-display;
+  font-size: $font-size-h1;
+  line-height: $line-height-h1;
+  text-transform: uppercase;
+}
+
+h2,
+.h2 {
+  font-family: $font-family-display;
+  font-size: $font-size-h2;
+  line-height: $line-height-h2;
+}
