@@ -7,8 +7,8 @@
       <div ref="targetRef" class="walker__target"/>
       <div class="walker__item" ref="walkerRef" :style="{ top: `${walkerPosition}px` }"/>
       <div class="h-wiggle walker__item walker__item--visual" :class="`walker__item--frame-${currentFrameComputed}`" :style="{ top: `${walkerPosition}px` }">
-        <img class="walker__img" src="@/assets/images/care1.svg" alt="character">
-        <img class="walker__img" src="@/assets/images/care2.svg" alt="character">
+        <Walker1 class="walker__img"/>
+        <Walker2 class="walker__img"/>
       </div>
     </div>
     <div class="walker__right">
@@ -18,6 +18,8 @@
 </template>
 
 <script setup lang="ts">
+import Walker1 from '@/assets/images/care1.svg'
+import Walker2 from '@/assets/images/care2.svg'
 import {computed, onMounted, onUnmounted, Ref, ref} from 'vue'
 
 const targetRef: Ref<HTMLElement> = ref(null)

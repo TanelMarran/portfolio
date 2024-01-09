@@ -54,7 +54,7 @@ onMounted(() => {
   const render = () => {
     requestAnimationFrame(render)
 
-    if (renderer.value) {
+    if (renderer.value && containerRef.value) {
       renderer.value.render(scene, camera)
       renderer.value.setSize(containerRef.value.offsetWidth, containerRef.value.offsetHeight)
       timer.value += .1

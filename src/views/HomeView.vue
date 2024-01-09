@@ -9,9 +9,9 @@
             alt="Tanel Marran"
           />
         </div>
-        <Heading>
-          Experience
-        </Heading>
+        <div class="h-height-vh">
+          <Icons/>
+        </div>
         <Heading>
           Projects
         </Heading>
@@ -41,6 +41,16 @@
 
           </div>
         </div>
+        <div class="h-height-vh">
+          <Heading>
+            Experience
+          </Heading>
+          <div class="text text-large">
+            <p>
+              My 3 years of experience as a full-stack developer has exposed me to many of the tools used in the field:
+            </p>
+          </div>
+        </div>
         <p v-for="i in Array(200)" :key="i">
           Tex text text texte texcet etefaewg asdgf klnag <br> reghjwaorlg ewrgn olanrgo erg ekg erbg wnergo
         </p>
@@ -56,5 +66,6 @@ import Heading from '../components/Heading.vue'
 import SingleImage from '../components/SingleImage.vue'
 
 import aboutMeImage from '@/assets/images/placeholder.jpg'
+import Icons from '@/components/Icons.vue'
 </script>
 
