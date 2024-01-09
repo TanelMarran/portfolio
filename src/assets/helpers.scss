@@ -22,8 +22,13 @@
   text-align: right;
 }
 
+.h-image-full {
+  width: 100%;
+  height: auto;
+}
+
 .h-wiggle {
-  animation: wiggle 600ms step-end infinite;
+  @include wiggle();
 }
 
 .h-height-vh {

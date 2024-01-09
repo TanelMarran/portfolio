@@ -6,9 +6,9 @@
     <div class="walker__track">
       <div ref="targetRef" class="walker__target"/>
       <div class="walker__item" ref="walkerRef" :style="{ top: `${walkerPosition}px` }"/>
-      <div class="h-wiggle walker__item walker__item--visual" :class="`walker__item--frame-${Math.floor(currentFrame % 2)}`" :style="{ top: `${walkerPosition}px` }">
-        <img class="walker__img" src="@/assets/images/care0.png" alt="character">
-        <img class="walker__img" src="@/assets/images/care1.png" alt="character">
+      <div class="h-wiggle walker__item walker__item--visual" :class="`walker__item--frame-${currentFrameComputed}`" :style="{ top: `${walkerPosition}px` }">
+        <img class="walker__img" src="@/assets/images/care1.svg" alt="character">
+        <img class="walker__img" src="@/assets/images/care2.svg" alt="character">
       </div>
     </div>
     <div class="walker__right">
@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, onUnmounted, Ref, ref} from 'vue'
+import {computed, onMounted, onUnmounted, Ref, ref} from 'vue'
 
 const targetRef: Ref<HTMLElement> = ref(null)
 const walkerRef: Ref<HTMLElement> = ref(null)
@@ -33,6 +33,8 @@ const walkerAcceleration = 1
 const maxSpeed = 20
 
 const currentFrame = ref(0)
+
+const currentFrameComputed = computed(() => Math.floor(currentFrame.value % 2))
 
 const tick = () => {
   if (targetRef.value && walkerRef.value) {
@@ -53,7 +55,7 @@ const tick = () => {
 
     walkerPosition.value += walkerSpeed.value
 
-    currentFrame.value = walkerSpeed.value == 0 ? 0 : currentFrame.value + .2
+    currentFrame.value += walkerSpeed.value != 0 || currentFrameComputed.value != 0 ? .2 : 0
   }
 
   tickTimeout = setTimeout(tick, 1000 / 60)
@@ -132,7 +134,8 @@ $topOffset: ((100 - $targetHeight) * .5);
 }
 
 .walker__img {
-  image-rendering: pixelated;
+  width: 128px;
+  height: 128px;
 }
 
 .walker__left,
@@ -141,11 +144,11 @@ $topOffset: ((100 - $targetHeight) * .5);
 }
 
 .walker__left {
-  padding-right: 64px;
+  padding-right: 96px;
 }
 
 .walker__right {
-  padding-left: 64px;
+  padding-left: 96px;
 }
 
 </style>

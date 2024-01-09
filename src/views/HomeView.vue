@@ -1,22 +1,60 @@
-<script setup lang="ts">
-import Walker from '../components/Walker.vue'
-import TitleContent from '../components/TitleContent.vue'
-</script>
-
 <template>
   <main>
     <Walker>
       <template #left>
-        <TitleContent/>
+        <TitleContent is-left/>
+        <div class="h-height-vh">
+          <SingleImage
+            :src="aboutMeImage"
+            alt="Tanel Marran"
+          />
+        </div>
+        <Heading>
+          Experience
+        </Heading>
+        <Heading>
+          Projects
+        </Heading>
+        <Heading>
+          Contact
+        </Heading>
       </template>
       <template #right>
+        <TitleContent/>
         <div class="h-height-vh">
+          <Heading>
+            About me
+          </Heading>
+          <div class="text mt-4 text-large">
+            <h2>
+              I am a web developer, game programmer and pixel artist currently based in Tartu, Estonia.
+            </h2>
+            <p>
+              I've been programming since 2014, creating games to show to my friends using Gamer Maker Studio.
+            </p>
+            <p>
+              I decided to pursue my passion for programming at the University of Tartu, where I graduate with a Bachelor's degree in Computer Science in 2021.
+            </p>
+            <p>
+              I have been working as full-stack web developer ever since!
+            </p>
 
+          </div>
         </div>
-        <item v-for="i in Array(200)" :key="i">
+        <p v-for="i in Array(200)" :key="i">
           Tex text text texte texcet etefaewg asdgf klnag <br> reghjwaorlg ewrgn olanrgo erg ekg erbg wnergo
-        </item>
+        </p>
       </template>
     </Walker>
   </main>
 </template>
+
+<script setup lang="ts">
+import Walker from '../components/Walker.vue'
+import TitleContent from '../components/TitleContent.vue'
+import Heading from '../components/Heading.vue'
+import SingleImage from '../components/SingleImage.vue'
+
+import aboutMeImage from '@/assets/images/placeholder.jpg'
+</script>
+

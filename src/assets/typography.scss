@@ -27,3 +27,18 @@ mark {
   background: none;
   color: $color-link;
 }
+
+.text-large {
+  font-size: $font-size-large;
+  line-height: $line-height-large;
+}
+
+.text {
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 1em;
+  }
+}
