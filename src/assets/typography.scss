@@ -21,6 +21,11 @@ a {
   color: $color-link;
   transition: 0.4s;
   padding: 3px;
+
+  &:hover {
+    color: $color-background;
+    background: $color-brand-01;
+  }
 }
 
 mark {
@@ -34,11 +39,11 @@ mark {
 }
 
 .text {
-  p,
-  h1,
-  h2,
-  h3,
-  h4 {
+  * + p,
+  * + h1,
+  * + h2,
+  * + h3,
+  * + h4 {
     margin-top: 1em;
   }
 }
