@@ -8,17 +8,59 @@
         {
           "title": "Waterbed",
           "text": "A short narrative horror game about learning that missteps happen",
-          "image": "waterbed.png"
+          "image": "waterbed.png",
+          "button": {
+            "text": "View game",
+            "link": "https://forestherd.itch.io/waterbed"
+          },
+          "meta": [
+            {
+              "label": "Engine",
+              "value": "Game Maker Studio 2"
+            },
+            {
+              "label": "Role",
+              "value": "Solo project"
+            }
+          ]
         },
         {
           "title": "Unstable Flesh",
           "text": "A horror platformer about escaping from a formless mass",
-          "image": "waterbed.png"
+          "image": "unstable-flesh.png",
+          "button": {
+            "text": "View game",
+            "link": "https://forestherd.itch.io/unstable-flesh"
+          },
+          "meta": [
+            {
+              "label": "Engine",
+              "value": "Godot 4"
+            },
+            {
+              "label": "Role",
+              "value": "Programming"
+            }
+          ]
         },
         {
           "title": "VOLL-AI",
           "text": "Bachelor's thesis work about Unity's Machine Learning Agents",
-          "image": "waterbed.png"
+          "image": "voll-ai.png",
+          "button": {
+            "text": "View game",
+            "link": "https://forestherd.itch.io/voll-ai"
+          },
+          "meta": [
+            {
+              "label": "Engine",
+              "value": "Unity"
+            },
+            {
+              "label": "Role",
+              "value": "Solo project"
+            }
+          ]
         }
       ]
     },
@@ -34,7 +76,7 @@
         {
           "title": "ON24",
           "text": "A reimagining of the brand and website for an all-in-one webstore",
-          "image": "waterbed.png"
+          "image": "on24.png"
         }
       ]
     }

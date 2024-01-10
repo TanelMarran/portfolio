@@ -20,15 +20,15 @@
     </div>
     <div class="projects__body">
       <div class="projects__display">
-          <template v-for="(group, index) in data.groups" :key="index">
-            <Transition name="list" :duration="900">
-              <div v-show="activeGroup.name === group.name" class="projects__list">
-                <template v-for="(project, projectIndex) in group.items" :key="projectIndex">
-                    <Project v-bind="project"/>
-                </template>
-              </div>
-            </Transition>
-          </template>
+        <template v-for="(group, index) in data.groups" :key="index">
+          <Transition name="list" :duration="900">
+            <div v-show="activeGroup.name === group.name" class="projects__list">
+              <template v-for="(project, projectIndex) in group.items" :key="projectIndex">
+                  <Project v-bind="project"/>
+              </template>
+            </div>
+          </Transition>
+        </template>
       </div>
     </div>
   </div>
@@ -102,7 +102,7 @@ const changeGroup = (newGroup) => {
 .projects__list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 
   &.list-enter-active {
     animation: projects-in 1000ms;

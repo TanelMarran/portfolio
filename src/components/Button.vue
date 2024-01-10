@@ -1,23 +1,29 @@
 <template>
-  <button class="button">
+  <a v-if="props.href" class="button" :href="props.href">
+    <slot/>
+  </a>
+  <button v-else class="button">
     <slot/>
   </button>
 </template>
 
-<script>
-
+<script setup>
+const props = defineProps({
+  href: {
+    type: String,
+  }
+})
 </script>
 
 <style lang="scss">
 .button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  //border: 2px solid $color-brand-01;
-  border: none;
+  border: 2px solid $color-brand-01;
   padding: 12px 24px;
   color: $color-brand-01;
-  font-size: 16px;
+font-size: 16px;
   line-height: 20px;
   letter-spacing: .06em;
   min-width: 128px;
@@ -32,7 +38,7 @@
 
   &.is-active,
   &:hover {
-    background-color: #cc456a;
+    background-color: $color-brand-01;
     color: $color-background;
   }
 

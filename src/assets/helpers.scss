@@ -64,7 +64,7 @@
   }
 }
 
-$sizes: [0, 1, 2, 4, 8];
+$sizes: [0, 1, 2, 4, 8, 16, 32];
 $spacing: 4px;
 
 @for $i from 1 through length($sizes) {

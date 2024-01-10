@@ -48,7 +48,6 @@
         React
       </div>
     </div>
-    <WiggleBackground class="icons__wiggle"/>
   </div>
 </template>
 
@@ -75,6 +74,7 @@ const props = defineProps({
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 32px;
 
   & > * {
     flex: 1 1 33%;
@@ -100,8 +100,12 @@ const props = defineProps({
 
 .icons__item-inner {
   position: relative;
-  margin: 16px;
+  margin: 16px 16px 4px 16px;
   font-size: 64px;
+
+  .icons__item.is-hovering & {
+    @include wiggle();
+  }
 }
 
 .icons__wiggle {

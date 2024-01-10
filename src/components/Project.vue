@@ -11,8 +11,20 @@
             {{ props.title }}
           </h2>
         </div>
-        <div class="project__text text-large">
-          {{ props.text }}
+        <div class="project__right-inner pl-4">
+          <div class="project__text text-large">
+            {{ props.text }}
+          </div>
+          <div class="project__meta">
+            <div class="project__meta-item" v-for="(meta, index) in props.meta" :key="index">
+              <div class="project__meta-label">{{ meta.label }}</div>
+              <div class="project__meta-value">{{ meta.value }}</div>
+            </div>
+          </div>
+          <Button class="project__button" v-if="props.button" :href="props.button.link">
+            {{ props.button.text }}
+            <ArrowRightSvg class="ml-2"/>
+          </Button>
         </div>
       </div>
     </div>
@@ -21,12 +33,26 @@
 
 <script setup lang="ts">
 import WiggleBackground from '../components/WiggleBackground.vue'
+import ArrowRightSvg from '@/assets/images/arrow-right.svg'
+import Button from '../components/Button.vue'
+
+export interface ProjectMetaProps {
+  label: string,
+  value: string
+}
+
+export interface ButtonProps {
+  text: string,
+  link: string
+}
 
 export interface ProjectProps {
   title: string,
   text: string,
+  button?: ButtonProps,
   image?: string,
   renderTrigger?: boolean,
+  meta?: ProjectMetaProps[]
 }
 
 const getImageUrl = (name) =>  {
@@ -34,7 +60,9 @@ const getImageUrl = (name) =>  {
 }
 
 const props = withDefaults(defineProps<ProjectProps>(), {
-  title: ''
+  title: '',
+  text: '',
+  meta: []
 })
 
 </script>
@@ -64,6 +92,7 @@ const props = withDefaults(defineProps<ProjectProps>(), {
 .project__head-right {
   flex-basis: 50%;
   padding: 24px;
+  overflow: hidden;
 }
 
 .project__title-wrapper {
@@ -81,10 +110,39 @@ const props = withDefaults(defineProps<ProjectProps>(), {
 .project__title {
   display: inline-block;
   color: $color-background;
+  z-index: 0;
 }
 
 .project__text {
   margin-top: 32px;
+}
+
+.project__meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.project__meta-item {
+  position: relative;
+  padding: 8px;
+  z-index: 1;
+  border-left: 4px solid $color-brand-01;
+}
+
+.project__meta-label {
+  font-weight: bold;
+}
+
+.project__button {
+  margin-top: 32px;
+  margin-right: auto;
+}
+
+.project__right-inner {
+  display: flex;
+  flex-direction: column;
 }
 
 </style>
