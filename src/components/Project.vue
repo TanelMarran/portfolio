@@ -26,6 +26,7 @@ export interface ProjectProps {
   title: string,
   text: string,
   image?: string,
+  renderTrigger?: boolean,
 }
 
 const getImageUrl = (name) =>  {
@@ -35,13 +36,13 @@ const getImageUrl = (name) =>  {
 const props = withDefaults(defineProps<ProjectProps>(), {
   title: ''
 })
+
 </script>
 
 <style lang="scss">
 .project {
   display: flex;
   border: 8px;
-
 }
 
 .project__head {

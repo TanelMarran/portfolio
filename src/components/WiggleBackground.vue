@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import * as THREE from 'three'
-import {onMounted, Ref, ref} from 'vue'
+import {defineExpose, onMounted, Ref, ref} from 'vue'
 
 const renderer: Ref<THREE.WebGLRenderer> = ref(null)
 
@@ -31,40 +31,46 @@ const createPlane = (): THREE.Mesh => {
   return new THREE.Mesh(shapeGeometry, material)
 }
 
+const scene = new THREE.Scene()
+const camera = new THREE.OrthographicCamera()
+
+const plane = createPlane()
+const plane2 = createPlane()
+const plane3 = createPlane()
+
+scene.add(plane)
+scene.add(plane2)
+scene.add(plane3)
+
+plane.position.z = 10
+plane2.position.z = 10
+plane3.position.z = 10
+camera.lookAt(plane.position)
+
+const render = () => {
+  if (renderer.value && containerRef.value) {
+    renderer.value.render(scene, camera)
+    renderer.value.setSize(containerRef.value.offsetWidth, containerRef.value.offsetHeight)
+    timer.value += 1
+    const flooredTimer = Math.floor(timer.value)
+    plane.visible = flooredTimer % 3 == 0
+    plane2.visible = flooredTimer % 3 == 1
+    plane3.visible = flooredTimer % 3 == 2
+  }
+}
+
+defineExpose({render})
+
 onMounted(() => {
-  const scene = new THREE.Scene()
-  const camera = new THREE.OrthographicCamera()
-
-  const plane = createPlane()
-  const plane2 = createPlane()
-  const plane3 = createPlane()
-
-  scene.add(plane)
-  scene.add(plane2)
-  scene.add(plane3)
-
-  plane.position.z = 10
-  plane2.position.z = 10
-  plane3.position.z = 10
-  camera.lookAt(plane.position)
-
   renderer.value = new THREE.WebGLRenderer({ canvas: backgroundCanvas.value, alpha: true })
   renderer.value.setPixelRatio(.25)
 
-  const render = () => {
-    setTimeout(render, 200)
-
-    if (renderer.value && containerRef.value) {
-      renderer.value.render(scene, camera)
-      renderer.value.setSize(containerRef.value.offsetWidth, containerRef.value.offsetHeight)
-      timer.value += 1
-      const flooredTimer = Math.floor(timer.value)
-      plane.visible = flooredTimer % 3 == 0
-      plane2.visible = flooredTimer % 3 == 1
-      plane3.visible = flooredTimer % 3 == 2
-    }
+  const renderLoop = () => {
+    setTimeout(renderLoop, 200)
+    render()
   }
-  render()
+
+  renderLoop()
 })
 </script>
 

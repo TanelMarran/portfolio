@@ -19,28 +19,16 @@
       </div>
     </div>
     <div class="projects__body">
-      <div class="projects__lists">
-        <template v-for="(group, index) in data.groups" :key="index">
-          <div v-show="activeGroup.name === group.name" class="projects__list">
-            <Button
-                @click="activeProject = itemIndex"
-                type="button"
-                v-for="(item, itemIndex) in group.items"
-                :key="itemIndex"
-                class="projects__list-item"
-                :class="activeProject === itemIndex && 'is-active'"
-            >
-              {{ item.title }}
-            </Button>
-          </div>
-        </template>
-      </div>
       <div class="projects__display">
-        <template v-for="(group, index) in data.groups" :key="index">
-          <template v-for="(project, projectIndex) in group.items" :key="projectIndex">
-            <Project v-show="activeGroup.name === group.name" v-bind="project"/>
+          <template v-for="(group, index) in data.groups" :key="index">
+            <Transition name="list" :duration="900">
+              <div v-show="activeGroup.name === group.name" class="projects__list">
+                <template v-for="(project, projectIndex) in group.items" :key="projectIndex">
+                    <Project v-bind="project"/>
+                </template>
+              </div>
+            </Transition>
           </template>
-        </template>
       </div>
     </div>
   </div>
@@ -68,6 +56,33 @@ const changeGroup = (newGroup) => {
 </script>
 
 <style lang="scss">
+@keyframes projects-in {
+  from {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes projects-out {
+  0% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
 
 .projects {
   margin: 128px 0;
@@ -88,6 +103,17 @@ const changeGroup = (newGroup) => {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  &.list-enter-active {
+    animation: projects-in 1000ms;
+  }
+
+  &.list-leave-active {
+    animation: projects-out 1000ms;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
 }
 
 .projects__body {
@@ -101,10 +127,9 @@ const changeGroup = (newGroup) => {
 }
 
 .projects__display {
+  position: relative;
   display: flex;
+  gap: 32px;
   flex-direction: column;
-
-  flex: 1 1 75%;
-  padding-left: 32px;
 }
 </style>
