@@ -52,12 +52,12 @@ onMounted(() => {
   renderer.value.setPixelRatio(.25)
 
   const render = () => {
-    requestAnimationFrame(render)
+    setTimeout(render, 200)
 
     if (renderer.value && containerRef.value) {
       renderer.value.render(scene, camera)
       renderer.value.setSize(containerRef.value.offsetWidth, containerRef.value.offsetHeight)
-      timer.value += .1
+      timer.value += 1
       const flooredTimer = Math.floor(timer.value)
       plane.visible = flooredTimer % 3 == 0
       plane2.visible = flooredTimer % 3 == 1

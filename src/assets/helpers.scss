@@ -54,6 +54,16 @@
   justify-content: right;
 }
 
+.h-walker-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 96px * 2;
+
+  & > * {
+    flex: 1 1 calc(50% - 96px);
+  }
+}
+
 $sizes: [0, 1, 2, 4, 8];
 $spacing: 4px;
 

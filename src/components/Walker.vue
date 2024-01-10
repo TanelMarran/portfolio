@@ -1,7 +1,7 @@
 <template>
   <div class="walker">
-    <div class="walker__left">
-      <slot name="left"/>
+    <div class="walker__content">
+      <slot/>
     </div>
     <div class="walker__track">
       <div ref="targetRef" class="walker__target"/>
@@ -10,9 +10,6 @@
         <Walker1 class="walker__img"/>
         <Walker2 class="walker__img"/>
       </div>
-    </div>
-    <div class="walker__right">
-      <slot name="right"/>
     </div>
   </div>
 </template>
@@ -82,6 +79,11 @@ onUnmounted(() => {
 .walker {
   position: relative;
   display: flex;
+}
+
+.walker__content {
+  display: flex;
+  flex-direction: column;
 }
 
 .walker__track {

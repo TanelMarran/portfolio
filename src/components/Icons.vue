@@ -48,6 +48,7 @@
         React
       </div>
     </div>
+    <WiggleBackground class="icons__wiggle"/>
   </div>
 </template>
 
@@ -57,6 +58,7 @@ import UnitySvg from '@/assets/images/unity.svg'
 import WordpressSvg from '@/assets/images/wordpress.svg'
 import VueSvg from '@/assets/images/vue.svg'
 import ReactSvg from '@/assets/images/react.svg'
+import WiggleBackground from '@/components/WiggleBackground.vue'
 
 const props = defineProps({
   highlights: {
@@ -76,13 +78,6 @@ const props = defineProps({
 
   & > * {
     flex: 1 1 33%;
-  }
-
-  & .wiggle-background {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
   }
 }
 
@@ -107,13 +102,14 @@ const props = defineProps({
   position: relative;
   margin: 16px;
   font-size: 64px;
+}
 
-  & .wiggle-background {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
+.icons__wiggle {
+  top: 100%;
+  margin-top: 32px;
+  height: 64px;
+  width: 256px;
+  right: 0;
 }
 
 </style>

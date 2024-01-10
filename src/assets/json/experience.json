@@ -1,0 +1,42 @@
+{
+  "title": "Projects",
+  "groups": [
+    {
+      "name": "Games",
+      "icon": "controller",
+      "items": [
+        {
+          "title": "Waterbed",
+          "text": "A short narrative horror game about learning that missteps happen",
+          "image": "waterbed.png"
+        },
+        {
+          "title": "Unstable Flesh",
+          "text": "A horror platformer about escaping from a formless mass",
+          "image": "waterbed.png"
+        },
+        {
+          "title": "VOLL-AI",
+          "text": "Bachelor's thesis work about Unity's Machine Learning Agents",
+          "image": "waterbed.png"
+        }
+      ]
+    },
+    {
+      "name": "Webs",
+      "icon": "website",
+      "items": [
+        {
+          "title": "Viidumetsa",
+          "text": "Real-estate development with a configurator used to change plot features to user's liking",
+          "image": "viidumetsa.png"
+        },
+        {
+          "title": "ON24",
+          "text": "A reimagining of the brand and website for an all-in-one webstore",
+          "image": "waterbed.png"
+        }
+      ]
+    }
+  ]
+}
