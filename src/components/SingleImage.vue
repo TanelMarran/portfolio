@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import WiggleBackground from '../components/WiggleBackground.vue'
-import {defineProps} from 'vue'
 
 const props = defineProps({
   src: {

@@ -11,9 +11,6 @@
         About me
       </Heading>
       <div class="text mt-4">
-        <p class="text-large">
-          I am a web developer, game programmer and pixel artist currently based in Tartu, Estonia.
-        </p>
         <p>
           I've been programming since 2014, using Game Maker Studio to recreate video games I watched lets plays of on Youtube. My favourites were Paper Mario: The Thousand Year Door as well New Super Mario Bros. Wii
         </p>

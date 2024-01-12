@@ -6,7 +6,9 @@
       <Experience/>
     </Walker>
     <Projects/>
-    <Contact/>
+    <Walker>
+      <Contact/>
+    </Walker>
   </main>
 </template>
 

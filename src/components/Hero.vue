@@ -2,12 +2,14 @@
   <div class="hero h-walker-container">
     <div class="title-content h-height-vh">
       <Heading>
-        Hi there!
+        Hello there!
       </Heading>
-      <h1>My name is <br><mark>Tanel Marran</mark></h1>
     </div>
     <div class="title-content h-height-vh">
-      <h2 class="pt-4">I'm a web developer, game developer and artist</h2>
+      <h1>My name is <br><mark>Tanel Marran</mark></h1>
+      <p class="text-large mt-2">
+        I am a web developer, game programmer and pixel artist currently based in Tartu, Estonia.
+      </p>
     </div>
   </div>
 </template>

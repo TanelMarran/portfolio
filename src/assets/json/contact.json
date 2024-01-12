@@ -1,0 +1,38 @@
+{
+  "title": "Get in touch",
+  "text": "Thanks so much for taking the time to get to know me and my work! Here's where you can get in contact with me.",
+  "social": {
+    "title": "Social links",
+    "items": [
+      {
+        "text": "LinkedIn",
+        "icon": "linkedin",
+        "link": "https://www.linkedin.com/in/tanel-marran-73b0/"
+      },
+      {
+        "text": "cohost",
+        "icon": "cohost",
+        "link": "https://cohost.org/forestherd"
+      }
+    ]
+  },
+  "stuff": {
+    "title": "More of my work",
+    "items": [
+      {
+        "text": "itch.io",
+        "icon": "itch",
+        "link": "https://forestherd.itch.io/"
+      },
+      {
+        "text": "GitHub",
+        "icon": "github",
+        "link": "https://github.com/TanelMarran"
+      }
+    ]
+  },
+  "email": {
+    "text": "marran.tanel@gmail.com",
+    "link": "mailto:marran.tanel@gmail.com"
+  }
+}

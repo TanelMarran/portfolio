@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import * as THREE from 'three'
-import {defineExpose, onMounted, Ref, ref} from 'vue'
+import {onMounted, Ref, ref} from 'vue'
 
 const renderer: Ref<THREE.WebGLRenderer> = ref(null)
 
