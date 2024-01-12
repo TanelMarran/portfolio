@@ -1,4 +1,5 @@
 <template>
+  header
   <main>
     <Walker>
       <Hero/>
@@ -6,6 +7,7 @@
       <Experience/>
     </Walker>
     <Projects/>
+    <Video/>
     <Walker>
       <Contact/>
     </Walker>
@@ -19,5 +21,6 @@ import AboutMe from '../components/AboutMe.vue'
 import Experience from '../components/Experience.vue'
 import Projects from '../components/Projects.vue'
 import Contact from '../components/Contact.vue'
+import Video from '../components/Video.vue'
 </script>
 

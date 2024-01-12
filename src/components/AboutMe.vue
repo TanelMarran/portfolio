@@ -1,4 +1,5 @@
 <template>
+  <div id="about-me"/>
   <div class="about-me h-walker-container">
     <div>
       <SingleImage
