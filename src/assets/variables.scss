@@ -24,3 +24,9 @@ $line-height-large: 32px;
 
 $font-family-display: 'Concert One';
 $font-family-base: 'Roboto';
+
+$breakpoints: (
+  small:  900px,
+  medium: 1000px,
+  large:  1200px
+) !default;

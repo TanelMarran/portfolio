@@ -17,6 +17,7 @@
   padding: 32px 0;
   justify-content: center;
   gap: 16px;
+  flex-wrap: wrap;
   z-index: 1;
 
   a {

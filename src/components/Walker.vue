@@ -87,12 +87,17 @@ onUnmounted(() => {
 }
 
 .walker__track {
+  display: none;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 128px;
+
+  @include bp(small) {
+    display: block;
+  }
 }
 
 $targetHeight: 10;

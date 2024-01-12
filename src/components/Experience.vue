@@ -46,7 +46,15 @@ const highlights = ref({
 
 <style lang="scss">
 .experience {
+  display: flex;
   align-items: center;
   margin: 128px 0;
+  flex-direction: column-reverse;
+  gap: 32px;
+
+  @include bp(small) {
+    flex-direction: row;
+    gap: 96px * 2;
+  }
 }
 </style>

@@ -49,6 +49,12 @@ const linkGroups = computed(() => [data.social, data.stuff])
 <style lang="scss">
 .contact {
   display: flex;
+  flex-direction: column;
+  padding-bottom: 128px;
+
+  @include bp(small) {
+    flex-direction: row;
+  }
 }
 
 .contact__text {
@@ -56,11 +62,22 @@ const linkGroups = computed(() => [data.social, data.stuff])
 }
 
 .contact__email {
-  display: inline-block;
   margin-right: auto;
-  font-size: 32px;
-  line-height: 48px;
   margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 24px;
+  line-height: 32px;
+
+  @include bp(medium) {
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  .contact__icon {
+    margin-right: 12px;
+  }
 }
 
 .contact__list {
@@ -74,9 +91,14 @@ const linkGroups = computed(() => [data.social, data.stuff])
 
 .contact__link-groups {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
+  flex-direction: row;
+  gap: 64px;
   margin-top: 32px;
+
+  @include bp(small) {
+    flex-direction: column;
+    gap: 32px;
+  }
 }
 
 .contact__link {
@@ -87,16 +109,6 @@ const linkGroups = computed(() => [data.social, data.stuff])
 
   .contact__icon {
     margin-right: 8px;
-  }
-}
-
-.contact__email {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 8px;
-
-  .contact__icon {
-    margin-right: 12px;
   }
 }
 

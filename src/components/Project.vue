@@ -76,6 +76,11 @@ const props = withDefaults(defineProps<ProjectProps>(), {
 .project__head {
   display: flex;
   width: 100%;
+  flex-direction: column;
+
+  @include bp(small) {
+    flex-direction: row;
+  }
 }
 
 .project__head-left {
@@ -92,7 +97,10 @@ const props = withDefaults(defineProps<ProjectProps>(), {
 .project__head-right {
   flex-basis: 50%;
   padding: 24px;
-  overflow: hidden;
+
+  @include bp(small) {
+    overflow: hidden;
+  }
 }
 
 .project__title-wrapper {

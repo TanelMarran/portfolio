@@ -35,7 +35,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+
+  @include bp(small) {
+    min-height: 100vh;
+  }
 }
 
 .h-flex {
@@ -55,12 +58,16 @@
 }
 
 .h-walker-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 96px * 2;
+  @include bp(small) {
+    display: flex;
+    justify-content: space-between;
+    gap: 96px * 2;
+  }
 
   & > * {
-    flex: 1 1 calc(50% - 96px);
+    @include bp(small) {
+      flex: 1 1 calc(50% - 96px);
+    }
   }
 }
 

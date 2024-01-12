@@ -52,7 +52,7 @@ import WiggleBackground from '@/components/WiggleBackground.vue'
 .video__background {
   position: absolute;
   bottom: -64px;
-  right: -64px;
+  right: 560px * .25 + 32px;
   width: 560px * .25;
   height: 315px * .25;
 }

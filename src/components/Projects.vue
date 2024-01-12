@@ -91,8 +91,14 @@ const changeGroup = (newGroup) => {
 
 .projects__head {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 32px;
+
+  @include bp(small) {
+    flex-direction: row;
+  }
 }
 
 .projects__buttons {

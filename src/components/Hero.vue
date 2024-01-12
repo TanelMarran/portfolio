@@ -19,6 +19,17 @@ import Heading from '../components/Heading.vue'
 </script>
 
 <style lang="scss">
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+
+  @include bp(small) {
+    flex-direction: row;
+  }
+}
+
 .title-content {
   display: flex;
   flex-direction: column;
