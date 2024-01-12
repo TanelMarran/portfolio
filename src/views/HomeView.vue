@@ -1,5 +1,5 @@
 <template>
-  header
+  <Header/>
   <main>
     <Walker>
       <Hero/>
@@ -22,5 +22,6 @@ import Experience from '../components/Experience.vue'
 import Projects from '../components/Projects.vue'
 import Contact from '../components/Contact.vue'
 import Video from '../components/Video.vue'
+import Header from '../components/Header.vue'
 </script>
 

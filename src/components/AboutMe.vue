@@ -3,8 +3,8 @@
   <div class="about-me h-walker-container">
     <div>
       <SingleImage
-          :src="aboutMeImage"
-          alt="Tanel Marran"
+        :src="aboutMeImage"
+        alt="Tanel Marran"
       />
     </div>
     <div>

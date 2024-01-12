@@ -1,4 +1,5 @@
 <template>
+  <div id="projects"/>
   <div class="projects">
     <div class="projects__head">
       <Heading>

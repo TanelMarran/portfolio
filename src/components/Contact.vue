@@ -1,4 +1,5 @@
 <template>
+  <div id="contact"/>
   <div class="contact h-walker-container">
     <div class="h-height-vh">
       <Heading>

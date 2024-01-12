@@ -1,6 +1,7 @@
 <template>
+  <div id="showreel"/>
   <div class="video">
-    <Heading>
+    <Heading class="video__heading">
       Showreel
     </Heading>
     <div class="video__container">
@@ -25,6 +26,10 @@ import WiggleBackground from '@/components/WiggleBackground.vue'
   margin: 128px 0;
 }
 
+.video__heading {
+  margin-bottom: 32px;
+}
+
 .video__container {
   position: relative;
   width: 100%;
@@ -32,7 +37,6 @@ import WiggleBackground from '@/components/WiggleBackground.vue'
 }
 
 .video__iframe {
-  margin-top: 32px;
   width: 100%;
   height: 100%;
 }
