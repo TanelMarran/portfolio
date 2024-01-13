@@ -17,12 +17,12 @@
 <script setup lang="ts">
 import Walker1 from '@/assets/images/care1.svg'
 import Walker2 from '@/assets/images/care2.svg'
-import {computed, onMounted, onUnmounted, Ref, ref} from 'vue'
+import {type Ref, computed, onMounted, onUnmounted, ref} from 'vue'
 
-const targetRef: Ref<HTMLElement> = ref(null)
-const walkerRef: Ref<HTMLElement> = ref(null)
+const targetRef: Ref<HTMLElement | undefined> = ref()
+const walkerRef: Ref<HTMLElement | undefined> = ref()
 
-const walkerPosition = ref(0)
+const walkerPosition = ref(360)
 
 const walkerTargetSpeed = ref(0)
 const walkerSpeed = ref (0)

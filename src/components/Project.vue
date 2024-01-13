@@ -55,14 +55,13 @@ export interface ProjectProps {
   meta?: ProjectMetaProps[]
 }
 
-const getImageUrl = (name) =>  {
+const getImageUrl = (name: any) =>  {
   return new URL(`../assets/images/${name}`, import.meta.url).href
 }
 
 const props = withDefaults(defineProps<ProjectProps>(), {
   title: '',
   text: '',
-  meta: []
 })
 
 </script>

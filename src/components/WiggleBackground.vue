@@ -6,12 +6,13 @@
 
 <script setup lang="ts">
 import * as THREE from 'three'
-import {onMounted, Ref, ref} from 'vue'
+import {onMounted, ref} from 'vue'
+import {type Ref} from 'vue'
 
-const renderer: Ref<THREE.WebGLRenderer> = ref(null)
+const renderer: Ref<THREE.WebGLRenderer | undefined> = ref()
 
-const backgroundCanvas: Ref<HTMLElement> = ref(null)
-const containerRef: Ref<HTMLElement> = ref(null)
+const backgroundCanvas: Ref<HTMLElement | undefined> = ref()
+const containerRef: Ref<HTMLElement | undefined> = ref()
 
 const variantPoint = () => 1 - Math.random() * 0.2
 

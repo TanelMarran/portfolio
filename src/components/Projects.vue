@@ -49,7 +49,7 @@ const activeGroup = ref(data.groups[0])
 
 const activeProject = ref(0)
 
-const changeGroup = (newGroup) => {
+const changeGroup = (newGroup: any) => {
   activeGroup.value = newGroup
   activeProject.value = 0
 }

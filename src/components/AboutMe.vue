@@ -12,14 +12,19 @@
         About me
       </Heading>
       <div class="text mt-4">
-        <p>
-          I've been programming since 2014, using Game Maker Studio to recreate video games I watched lets plays of on Youtube. My favourites were Paper Mario: The Thousand Year Door as well New Super Mario Bros. Wii
+        <p class="text-large">
+          I am a programmer with a deep love for art and design.
         </p>
         <p>
-          I decided to pursue my passion for programming at the University of Tartu, where I graduate with a Bachelor's degree in Computer Science in 2021.
+          I started programming in 2010, looking up tutorials on how to make 2D platforming games using Game Maker Studio.
+          My love for creating video games bloomed and blossomed into a general love for computer science, math and systems design.
         </p>
         <p>
-          I have been working as full-stack web developer ever since!
+          Game development sits at the intersection of programming and artistry. I have nurtured these two aspects through both my personal life and professional career,
+          leading me to love branches of Computer Science which exist at that meeting place: AI programming, game development and web development.
+        </p>
+        <p>
+          When I'm not writing for-loops or recursive function, I'm sewing clothing, painting with gouache, rock-climbing or playing DnD with my friends!
         </p>
       </div>
     </div>
