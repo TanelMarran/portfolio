@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import SingleImage from '@/components/SingleImage.vue'
-import aboutMeImage from '@/assets/images/placeholder.jpg'
+import aboutMeImage from '@/assets/images/profile.jpg'
 import Heading from '../components/Heading.vue'
 
 const props = defineProps({
