@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import * as THREE from 'three'
+import * as PIXI from 'pixi.js'
 import {onMounted, ref} from 'vue'
 import {type Ref} from 'vue'
 
@@ -14,64 +15,64 @@ const renderer: Ref<THREE.WebGLRenderer | undefined> = ref()
 const backgroundCanvas: Ref<HTMLElement | undefined> = ref()
 const containerRef: Ref<HTMLElement | undefined> = ref()
 
-const variantPoint = () => 1 - Math.random() * 0.2
+const varianceAmount = 3
+const scale = .25
 
-const timer = ref(0)
+const variantPoint = (x) => x * (1 - Math.random() * 0.2)
 
-const createPlane = (): THREE.Mesh => {
-  const shape = new THREE.Shape()
+const createRelativeShape = () => Array.from({ length: 8 }, () => Math.random() * varianceAmount)
 
-  shape.moveTo(variantPoint(), variantPoint())
-  shape.lineTo(-variantPoint(), variantPoint())
-  shape.lineTo(-variantPoint(), -variantPoint())
-  shape.lineTo(variantPoint(), -variantPoint())
+const drawRelativeShape = (graphic: PIXI.Graphics, width: number, height: number, shape: number[]) => {
+  const widthCenter = width * .5
+  const heightCenter = height * .5
 
-  const shapeGeometry = new THREE.ShapeGeometry(shape)
-  const material = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xcc456a), side: THREE.DoubleSide })
-
-  return new THREE.Mesh(shapeGeometry, material)
+  graphic.clear()
+  graphic.beginFill(0xcc456a, 1);
+  graphic.lineStyle(1, 0xcc456a, 1);
+  graphic.drawPolygon(
+      [
+        new PIXI.Point(widthCenter - (widthCenter - shape[0]), heightCenter - (heightCenter - shape[1])),
+        new PIXI.Point(widthCenter - (widthCenter - shape[2]), heightCenter + (heightCenter - shape[3])),
+        new PIXI.Point(widthCenter + (widthCenter - shape[4]), heightCenter + (heightCenter - shape[5])),
+        new PIXI.Point(widthCenter + (widthCenter - shape[6]), heightCenter - (heightCenter - shape[7])),
+      ]
+  );
+  graphic.scale.x = 1 / scale
+  graphic.scale.y = 1 / scale
+  graphic.endFill();
 }
 
-const scene = new THREE.Scene()
-const camera = new THREE.OrthographicCamera()
-
-const plane = createPlane()
-const plane2 = createPlane()
-const plane3 = createPlane()
-
-scene.add(plane)
-scene.add(plane2)
-scene.add(plane3)
-
-plane.position.z = 10
-plane2.position.z = 10
-plane3.position.z = 10
-camera.lookAt(plane.position)
-
-const render = () => {
-  if (renderer.value && containerRef.value) {
-    renderer.value.render(scene, camera)
-    renderer.value.setSize(containerRef.value.offsetWidth, containerRef.value.offsetHeight)
-    timer.value += 1
-    const flooredTimer = Math.floor(timer.value)
-    plane.visible = flooredTimer % 3 == 0
-    plane2.visible = flooredTimer % 3 == 1
-    plane3.visible = flooredTimer % 3 == 2
-  }
-}
-
-defineExpose({render})
+const frame = ref(0)
 
 onMounted(() => {
-  renderer.value = new THREE.WebGLRenderer({ canvas: backgroundCanvas.value, alpha: true })
-  renderer.value.setPixelRatio(.25)
+  if (backgroundCanvas.value && containerRef.value) {
+    const app = new PIXI.Application({
+      view: backgroundCanvas.value as PIXI.ICanvas,
+      resizeTo: containerRef.value as HTMLElement,
+      backgroundAlpha: 0,
+      resolution: scale,
+    });
 
-  const renderLoop = () => {
-    setTimeout(renderLoop, 200)
-    render()
+    const graphic = new PIXI.Graphics();
+    const shapes = Array.from({ length: 3 }, () => createRelativeShape())
+
+    drawRelativeShape(graphic, app.view.width, app.view.height, shapes[0])
+
+    app.stage.addChild(graphic);
+
+    const render = () => {
+      frame.value++;
+
+      drawRelativeShape(graphic, app.view.width, app.view.height, shapes[frame.value % 3])
+    }
+
+    const renderLoop = () => {
+      render()
+      setTimeout(renderLoop, 200)
+    }
+
+    renderLoop()
   }
-
-  renderLoop()
 })
 </script>
 
@@ -83,5 +84,7 @@ onMounted(() => {
 
 .wiggle-background__canvas {
   image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
 }
 </style>

@@ -24,7 +24,7 @@
           leading me to love branches of Computer Science which exist at that meeting place: AI programming, game development and web development.
         </p>
         <p>
-          When I'm not writing for-loops or recursive function, I'm sewing clothing, painting with gouache, rock-climbing or playing DnD with my friends!
+          When I'm not writing for-loops or recursive function, I'm sewing clothing, <a href="https://cohost.org/forestherd/post/4206115-buildings-in-light-a" target="_blank">painting with gouache</a>, rock-climbing or playing DnD with my friends!
         </p>
       </div>
     </div>

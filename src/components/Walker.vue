@@ -118,10 +118,6 @@ $topOffset: ((100 - $targetHeight) * .5);
   top: 0;
 }
 
-.walker__item--visual {
-  transition: top 150ms;
-}
-
 .walker__item--frame-0 {
   .walker__img {
     display: none;
