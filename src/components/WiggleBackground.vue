@@ -5,12 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import * as THREE from 'three'
 import * as PIXI from 'pixi.js'
 import {onMounted, ref} from 'vue'
 import {type Ref} from 'vue'
-
-const renderer: Ref<THREE.WebGLRenderer | undefined> = ref()
 
 const backgroundCanvas: Ref<HTMLElement | undefined> = ref()
 const containerRef: Ref<HTMLElement | undefined> = ref()
