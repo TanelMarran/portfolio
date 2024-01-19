@@ -15,8 +15,6 @@ const containerRef: Ref<HTMLElement | undefined> = ref()
 const varianceAmount = 3
 const scale = .25
 
-const variantPoint = (x) => x * (1 - Math.random() * 0.2)
-
 const createRelativeShape = () => Array.from({ length: 8 }, () => Math.random() * varianceAmount)
 
 const drawRelativeShape = (graphic: PIXI.Graphics, width: number, height: number, shape: number[]) => {
@@ -43,7 +41,7 @@ const frame = ref(0)
 
 onMounted(() => {
   const app = new PIXI.Application({
-    view: backgroundCanvas.value as PIXI.ICanvas,
+    view: backgroundCanvas.value as unknown as PIXI.ICanvas,
     resizeTo: containerRef.value as HTMLElement,
     backgroundAlpha: 0,
     resolution: scale,

@@ -1,7 +1,7 @@
 import './appear.scss'
 
 const appear = {
-    mounted(el: HTMLElement, binding, vnode, prevVnode) {
+    mounted(el: HTMLElement) {
         el.classList.add('appear')
         el.classList.add('is-appear-hidden')
 
