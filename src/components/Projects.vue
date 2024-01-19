@@ -52,6 +52,7 @@ const activeProject = ref(0)
 const changeGroup = (newGroup: any) => {
   activeGroup.value = newGroup
   activeProject.value = 0
+  window.dispatchEvent(new Event('resize'))
 }
 
 </script>
