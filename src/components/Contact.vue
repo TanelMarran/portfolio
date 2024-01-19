@@ -54,6 +54,7 @@ const linkGroups = computed(() => [data.social, data.stuff])
 
   @include bp(small) {
     flex-direction: row;
+    padding-bottom: 0;
   }
 }
 

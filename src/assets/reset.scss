@@ -28,4 +28,17 @@ body {
 main {
   display: flex;
   flex-direction: column;
+
+  &:before {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    width: 320px;
+    height: 320px;
+    background: $color-background-light;
+    border-radius: 100%;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+  }
 }

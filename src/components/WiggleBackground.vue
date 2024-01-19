@@ -45,34 +45,32 @@ const drawRelativeShape = (graphic: PIXI.Graphics, width: number, height: number
 const frame = ref(0)
 
 onMounted(() => {
-  if (backgroundCanvas.value && containerRef.value) {
-    const app = new PIXI.Application({
-      view: backgroundCanvas.value as PIXI.ICanvas,
-      resizeTo: containerRef.value as HTMLElement,
-      backgroundAlpha: 0,
-      resolution: scale,
-    });
+  const app = new PIXI.Application({
+    view: backgroundCanvas.value as PIXI.ICanvas,
+    resizeTo: containerRef.value as HTMLElement,
+    backgroundAlpha: 0,
+    resolution: scale,
+  });
 
-    const graphic = new PIXI.Graphics();
-    const shapes = Array.from({ length: 3 }, () => createRelativeShape())
+  const graphic = new PIXI.Graphics();
+  const shapes = Array.from({ length: 3 }, () => createRelativeShape())
 
-    drawRelativeShape(graphic, app.view.width, app.view.height, shapes[0])
+  drawRelativeShape(graphic, app.view.width, app.view.height, shapes[0])
 
-    app.stage.addChild(graphic);
+  app.stage.addChild(graphic);
 
-    const render = () => {
-      frame.value++;
+  const render = () => {
+    frame.value++;
 
-      drawRelativeShape(graphic, app.view.width, app.view.height, shapes[frame.value % 3])
-    }
-
-    const renderLoop = () => {
-      render()
-      setTimeout(renderLoop, 200)
-    }
-
-    renderLoop()
+    drawRelativeShape(graphic, app.view.width, app.view.height, shapes[frame.value % 3])
   }
+
+  const renderLoop = () => {
+    render()
+    setTimeout(renderLoop, 200)
+  }
+
+  renderLoop()
 })
 </script>
 

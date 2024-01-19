@@ -100,7 +100,7 @@ onUnmounted(() => {
   }
 }
 
-$targetHeight: 10;
+$targetHeight: 5;
 $topOffset: ((100 - $targetHeight) * .5);
 
 .walker__target {
