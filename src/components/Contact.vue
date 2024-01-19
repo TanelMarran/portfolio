@@ -1,32 +1,34 @@
 <template>
-  <div id="contact"/>
-  <div class="contact h-walker-container">
-    <div class="h-height-vh">
-      <Heading>
-        {{ data.title }}
-      </Heading>
-      <p class="contact__text text text-large">
-        {{ data.text }}
-      </p>
-      <a class="contact__email" :href="data.email.link"><EmailSvg class="contact__icon"/>{{ data.email.text }}</a>
-    </div>
-    <div class="h-height-vh">
-      <div class="contact__link-groups">
-        <div class="contact__links" v-for="(group, index) in linkGroups" :key="index">
-          <h2>
-            {{ group.title }}
-          </h2>
-          <ul class="contact__list">
-            <li class="contact__list-item" v-for="(link, linkIndex) in group.items" :key="linkIndex">
-              <a class="contact__link text-large" :href="link.link">
-                <LinkedInSvg v-if="link.icon === 'linkedin'" class="contact__icon"/>
-                <ItchSvg v-else-if="link.icon === 'itch'" class="contact__icon"/>
-                <GitHubSvg v-else-if="link.icon === 'github'" class="contact__icon"/>
-                <CoHostSvg v-else-if="link.icon === 'cohost'" class="contact__icon"/>
-                {{ link.text }}
-              </a>
-            </li>
-          </ul>
+  <div>
+    <div id="contact"/>
+    <div class="contact h-walker-container">
+      <div class="h-height-vh">
+        <Heading>
+          {{ data.title }}
+        </Heading>
+        <p class="contact__text text text-large">
+          {{ data.text }}
+        </p>
+        <a class="contact__email" :href="data.email.link"><EmailSvg class="contact__icon"/>{{ data.email.text }}</a>
+      </div>
+      <div class="h-height-vh">
+        <div class="contact__link-groups">
+          <div class="contact__links" v-for="(group, index) in linkGroups" :key="index">
+            <h2>
+              {{ group.title }}
+            </h2>
+            <ul class="contact__list">
+              <li class="contact__list-item" v-for="(link, linkIndex) in group.items" :key="linkIndex">
+                <a class="contact__link text-large" :href="link.link">
+                  <LinkedInSvg v-if="link.icon === 'linkedin'" class="contact__icon"/>
+                  <ItchSvg v-else-if="link.icon === 'itch'" class="contact__icon"/>
+                  <GitHubSvg v-else-if="link.icon === 'github'" class="contact__icon"/>
+                  <CoHostSvg v-else-if="link.icon === 'cohost'" class="contact__icon"/>
+                  {{ link.text }}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -1,13 +1,15 @@
 <template>
-  <div id="showreel"/>
-  <div class="video">
-    <Heading class="video__heading">
-      Showreel
-    </Heading>
-    <div class="video__container">
-      <div class="video__container-aspect">
-        <WiggleBackground class="video__background"/>
-        <iframe class="video__iframe" src="https://www.youtube.com/embed/QPWx3CmGcu8?si=adGbkxFRGKPi-Wyd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <div>
+    <div id="showreel"/>
+    <div class="video">
+      <Heading class="video__heading">
+        Showreel
+      </Heading>
+      <div class="video__container">
+        <div class="video__container-aspect">
+          <WiggleBackground class="video__background"/>
+          <iframe class="video__iframe" src="https://www.youtube.com/embed/QPWx3CmGcu8?si=adGbkxFRGKPi-Wyd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </div>

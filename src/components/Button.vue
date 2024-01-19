@@ -23,11 +23,11 @@ const props = defineProps({
   border: 2px solid $color-brand-01;
   padding: 12px 24px;
   color: $color-brand-01;
-font-size: 16px;
+  background-color: transparent;
+  font-size: 16px;
   line-height: 20px;
   letter-spacing: .06em;
   min-width: 128px;
-  background: none;
   cursor: pointer;
   font-weight: bold;
   transition-property: color, background-color;

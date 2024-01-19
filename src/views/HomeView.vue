@@ -2,14 +2,14 @@
   <Header/>
   <main>
     <Walker>
-      <Hero/>
-      <AboutMe/>
-      <Experience/>
+      <Hero v-appear/>
+      <AboutMe v-appear/>
+      <Experience v-appear/>
     </Walker>
-    <Projects/>
-    <Video/>
+    <Projects v-appear/>
+    <Video v-appear/>
     <Walker>
-      <Contact/>
+      <Contact v-appear/>
     </Walker>
   </main>
 </template>
@@ -24,4 +24,3 @@ import Contact from '../components/Contact.vue'
 import Video from '../components/Video.vue'
 import Header from '../components/Header.vue'
 </script>
-

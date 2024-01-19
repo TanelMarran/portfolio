@@ -1,35 +1,37 @@
 <template>
-  <div id="projects"/>
-  <div class="projects">
-    <div class="projects__head">
-      <Heading>
-        {{ data.title }}
-      </Heading>
-      <div class="projects__buttons">
-        <template v-for="(group, index) in data.groups" :key="index">
-          <Button
-              @click="() => changeGroup(group)"
-              type="button"
-              :class="activeGroup.name === group.name && 'is-active'"
-          >
-            <ControllerIcon v-if="group.icon === 'controller'" class="mr-1"/>
-            <WebsiteIcon v-if="group.icon === 'website'" class="mr-1"/>
-            {{ group.name }}
-          </Button>
-        </template>
+  <div>
+    <div id="projects"/>
+    <div class="projects">
+      <div class="projects__head">
+        <Heading>
+          {{ data.title }}
+        </Heading>
+        <div class="projects__buttons">
+          <template v-for="(group, index) in data.groups" :key="index">
+            <Button
+                @click="() => changeGroup(group)"
+                type="button"
+                :class="activeGroup.name === group.name && 'is-active'"
+            >
+              <ControllerIcon v-if="group.icon === 'controller'" class="mr-1"/>
+              <WebsiteIcon v-if="group.icon === 'website'" class="mr-1"/>
+              {{ group.name }}
+            </Button>
+          </template>
+        </div>
       </div>
-    </div>
-    <div class="projects__body">
-      <div class="projects__display">
-        <template v-for="(group, index) in data.groups" :key="index">
-          <Transition name="list" :duration="900">
-            <div v-show="activeGroup.name === group.name" class="projects__list">
-              <template v-for="(project, projectIndex) in group.items" :key="projectIndex">
+      <div class="projects__body">
+        <div class="projects__display">
+          <template v-for="(group, index) in data.groups" :key="index">
+            <Transition name="list" :duration="900">
+              <div v-show="activeGroup.name === group.name" class="projects__list">
+                <template v-for="(project, projectIndex) in group.items" :key="projectIndex">
                   <Project v-bind="project"/>
-              </template>
-            </div>
-          </Transition>
-        </template>
+                </template>
+              </div>
+            </Transition>
+          </template>
+        </div>
       </div>
     </div>
   </div>

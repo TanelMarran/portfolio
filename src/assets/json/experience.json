@@ -71,12 +71,40 @@
         {
           "title": "Viidumetsa",
           "text": "Real-estate development with a configurator used to change plot features to user's liking",
-          "image": "viidumetsa.png"
+          "image": "viidumetsa.png",
+          "button": {
+            "text": "View site",
+            "link": "https://viidumetsa.ee/"
+          },
+          "meta": [
+            {
+              "label": "Technology",
+              "value": "Wordpress"
+            },
+            {
+              "label": "Role",
+              "value": "Full-stack"
+            }
+          ]
         },
         {
           "title": "ON24",
           "text": "A reimagining of the brand and website for an all-in-one webstore",
-          "image": "on24.png"
+          "image": "on24.png",
+          "button": {
+            "text": "View site",
+            "link": "https://www.on24.ee/"
+          },
+          "meta": [
+            {
+              "label": "Technology",
+              "value": "Nuxt.js"
+            },
+            {
+              "label": "Role",
+              "value": "Front-end"
+            }
+          ]
         }
       ]
     }
