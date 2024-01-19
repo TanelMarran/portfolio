@@ -11,21 +11,18 @@
             My 3 years of experience as a full-stack developer has developed both my technical and interpersonal skills.
           </p>
           <p>
-            I've worked with Nuxt.js to update and modernize the design of an <a @mouseenter="() => highlights.vue = true" @mouseleave="() => highlights.vue = false" href="https://www.on24.ee/" target="_blank">all-in-one webstore</a>.
+            I've worked with Nuxt.js to update and modernize the design of an <ExperienceLink v-model:property="highlights.vue">all-in-one webstore</ExperienceLink>.
             I've also developed numerous Wordpress sites, my favourite of which was a <a @mouseenter="() => highlights.wordpress = true" @mouseleave="() => highlights.wordpress = false" href="https://www.viidumetsa.ee/" target="_blank">real-estate development</a> with a system to configure details of the selected plot to the client's liking.
             Currently I'm working on a website redesign using Next.js and Strapi.
           </p>
           <p>
             In the waters of game development, I've tried my hand at multiple different engines.
-            I'm a big fan of 2D pixel art games and as such my favourite engine to work with in my free time is Godot.
-          </p>
-          <p>
-            I've made a 2D platforming horror game
+            I've made a 2D horror platformer, a
           </p>
         </div>
       </div>
       <div>
-        <Icons :highlights="highlights"/>
+        <Icons class="experience__icons" :highlights="highlights"/>
       </div>
     </div>
   </div>
@@ -34,7 +31,8 @@
 <script setup lang="ts">
 import Icons from '@/components/Icons.vue'
 import Heading from '@/components/Heading.vue'
-import {computed, ref} from 'vue'
+import {ref} from 'vue'
+import ExperienceLink from '@/components/ExperienceLink.vue'
 
 const highlights = ref({
   vue: false,
@@ -44,6 +42,7 @@ const highlights = ref({
   unreal: false,
   wordpress: false
 })
+
 </script>
 
 <style lang="scss">
@@ -51,12 +50,22 @@ const highlights = ref({
   display: flex;
   align-items: center;
   margin: 128px 0;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 32px;
 
   @include bp(small) {
     flex-direction: row;
     gap: 96px * 2;
+  }
+}
+
+.experience__icons {
+  margin-top: 32px;
+  max-width: 560px;
+
+  @include bp(small) {
+    margin-top: 0;
+    padding: 0 16px;
   }
 }
 </style>

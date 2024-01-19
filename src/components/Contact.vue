@@ -3,7 +3,7 @@
     <div id="contact"/>
     <div class="contact h-walker-container">
       <div class="h-height-vh">
-        <Heading>
+        <Heading class="contact__heading">
           {{ data.title }}
         </Heading>
         <p class="contact__text text text-large">
@@ -112,6 +112,14 @@ const linkGroups = computed(() => [data.social, data.stuff])
 
   .contact__icon {
     margin-right: 8px;
+  }
+}
+
+.contact__heading {
+  text-align: center;
+
+  @include bp(small) {
+    text-align: left;
   }
 }
 

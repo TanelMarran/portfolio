@@ -12,7 +12,7 @@
         <Heading>
           About me
         </Heading>
-        <div class="text mt-4">
+        <div class="text mt-8">
           <p class="text-large">
             I am a programmer with a deep love for art and design.
           </p>
