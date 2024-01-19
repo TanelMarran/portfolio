@@ -3,9 +3,6 @@
     <div id="experience"/>
     <div class="experience h-walker-container">
       <div>
-        <Icons :highlights="highlights"/>
-      </div>
-      <div>
         <Heading>
           Experience
         </Heading>
@@ -26,6 +23,9 @@
             I've made a 2D platforming horror game
           </p>
         </div>
+      </div>
+      <div>
+        <Icons :highlights="highlights"/>
       </div>
     </div>
   </div>
