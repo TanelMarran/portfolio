@@ -13,7 +13,7 @@
           About me
         </Heading>
         <div class="text mt-8">
-          <p class="text-large">
+          <p class="h2">
             I am a programmer with a deep love for art and design.
           </p>
           <p>
@@ -21,11 +21,11 @@
             My love for creating video games bloomed and blossomed into a general love for computer science, math and systems design.
           </p>
           <p>
-            Game development sits at the intersection of programming and artistry. I have nurtured these two aspects through both my personal life and professional career,
-            leading me to love branches of Computer Science which exist at that meeting place: AI programming, game development and web development.
+            Game development sits at the intersection of programming and art. I have nurtured these two aspects through both my personal life and professional career,
+            leading me to love branches of Computer Science which exist at that meeting place: AI programming, game development, VR and web development.
           </p>
           <p>
-            When I'm not writing for-loops or recursive function, I'm sewing clothing, <a href="https://cohost.org/forestherd/post/4206115-buildings-in-light-a" target="_blank">painting with gouache</a>, rock-climbing or playing DnD with my friends!
+            When I'm not writing for-loops or recursive functions, I'm sewing clothing, <a href="https://cohost.org/forestherd/post/4206115-buildings-in-light-a" target="_blank">painting with gouache</a>, rock-climbing or playing DnD with my friends!
           </p>
         </div>
       </div>

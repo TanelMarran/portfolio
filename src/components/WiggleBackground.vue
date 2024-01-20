@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import * as PIXI from 'pixi.js'
+import {settings} from 'pixi.js'
 import {onMounted, ref} from 'vue'
 import {type Ref} from 'vue'
 
@@ -40,6 +41,8 @@ const drawRelativeShape = (graphic: PIXI.Graphics, width: number, height: number
 const frame = ref(0)
 
 onMounted(() => {
+  settings.CAN_UPLOAD_SAME_BUFFER = false
+
   const app = new PIXI.Application({
     view: backgroundCanvas.value as unknown as PIXI.ICanvas,
     resizeTo: containerRef.value as HTMLElement,
