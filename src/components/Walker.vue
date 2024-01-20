@@ -28,7 +28,7 @@ const walkerTargetSpeed = ref(0)
 const walkerSpeed = ref (0)
 
 const walkerFriction = .5
-const walkerAcceleration = 1
+const walkerAcceleration = .8
 const maxSpeed = 20
 
 const currentFrame = ref(0)
@@ -57,13 +57,13 @@ const tick = () => {
     currentFrame.value += walkerSpeed.value != 0 || currentFrameComputed.value != 0 ? .2 : 0
   }
 
-  tickTimeout = setTimeout(tick, 1000 / 60)
+  tickTimeout = requestAnimationFrame(tick)
 }
 
 let tickTimeout: number | null = null
 
 onMounted(() => {
-  tickTimeout = setTimeout(tick, 1000 / 60)
+  tickTimeout = requestAnimationFrame(tick)
 })
 
 onUnmounted(() => {

@@ -1,25 +1,29 @@
 <template>
-  <a @mouseenter="() => computedProperty = true" @mouseleave="() => computedProperty = false" href="https://www.on24.ee/" target="_blank"><slot/></a>
+  <a @mouseenter="() => computedmodelValue = true" @mouseleave="() => computedmodelValue = false" :href="props.href" target="_blank"><slot/></a>
 </template>
 
 <script setup>
 import {computed} from 'vue'
 
 const props = defineProps({
-  property: {
+  modelValue: {
     type: Boolean,
     default: false
+  },
+  href: {
+    type: String,
+    default: ''
   }
 })
 
-const computedProperty = computed({
+const computedmodelValue = computed({
   get() {
-    return props.property
+    return props.modelValue
   },
   set(newValue) {
-    emit('update:property', newValue)
+    emit('update:modelValue', newValue)
   }
 })
 
-const emit = defineEmits(['update:property'])
+const emit = defineEmits(['update:modelValue'])
 </script>

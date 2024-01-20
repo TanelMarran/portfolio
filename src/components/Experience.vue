@@ -10,15 +10,6 @@
           <p class="text-large">
             My 3 years of experience as a full-stack developer has developed both my technical and interpersonal skills.
           </p>
-          <p>
-            I've worked with Nuxt.js to update and modernize the design of an <ExperienceLink v-model:property="highlights.vue">all-in-one webstore</ExperienceLink>.
-            I've also developed numerous Wordpress sites, my favourite of which was a <a @mouseenter="() => highlights.wordpress = true" @mouseleave="() => highlights.wordpress = false" href="https://www.viidumetsa.ee/" target="_blank">real-estate development</a> with a system to configure details of the selected plot to the client's liking.
-            Currently I'm working on a website redesign using Next.js and Strapi.
-          </p>
-          <p>
-            In the waters of game development, I've tried my hand at multiple different engines.
-            I've made a 2D horror platformer, a
-          </p>
         </div>
       </div>
       <div>
@@ -56,6 +47,10 @@ const highlights = ref({
   @include bp(small) {
     flex-direction: row;
     gap: 96px * 2;
+  }
+
+  a {
+    padding: 0;
   }
 }
 
