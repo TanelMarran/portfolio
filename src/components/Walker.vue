@@ -6,9 +6,18 @@
     <div class="walker__track">
       <div ref="targetRef" class="walker__target"/>
       <div class="walker__item" ref="walkerRef" :style="{ top: `${walkerPosition}px` }"/>
-      <div class="h-wiggle walker__item walker__item--visual" :class="`walker__item--frame-${currentFrameComputed}`" :style="{ top: `${walkerPosition}px` }">
+      <div
+        class="h-wiggle walker__item walker__item--visual"
+        :class="[
+          `walker__item--frame-${currentFrameComputed}`,
+          isBlink > 0 && 'is-blink'
+        ]"
+        :style="{ top: `${walkerPosition}px` }"
+      >
         <Walker1 class="walker__img"/>
         <Walker2 class="walker__img"/>
+        <WalkerEyes class="walker__eyes"/>
+        <WalkerBlink class="walker__eyes walker__eyes--closed"/>
       </div>
     </div>
   </div>
@@ -17,6 +26,8 @@
 <script setup lang="ts">
 import Walker1 from '@/assets/images/care1.svg'
 import Walker2 from '@/assets/images/care2.svg'
+import WalkerEyes from '@/assets/images/care-eyes.svg'
+import WalkerBlink from '@/assets/images/care-blink.svg'
 import {type Ref, computed, onMounted, onUnmounted, ref} from 'vue'
 
 const targetRef: Ref<HTMLElement | undefined> = ref()
@@ -27,9 +38,11 @@ const walkerPosition = ref(360)
 const walkerTargetSpeed = ref(0)
 const walkerSpeed = ref (0)
 
-const walkerFriction = .5
 const walkerAcceleration = .8
 const maxSpeed = 20
+
+const isBlink = ref(0)
+const blinkTimer = ref(100)
 
 const currentFrame = ref(0)
 
@@ -55,6 +68,17 @@ const tick = () => {
     walkerPosition.value += walkerSpeed.value
 
     currentFrame.value += walkerSpeed.value != 0 || currentFrameComputed.value != 0 ? .2 : 0
+
+    blinkTimer.value -= 1
+
+    if (blinkTimer.value <= 0) {
+      isBlink.value = .9
+      blinkTimer.value = 150 + Math.floor(Math.random() * 100)
+    }
+
+    if (isBlink.value > 0) {
+      isBlink.value = Math.max(0, isBlink.value - .1)
+    }
   }
 
   tickTimeout = requestAnimationFrame(tick)
@@ -110,6 +134,27 @@ $topOffset: ((100 - $targetHeight) * .5);
   width: 128px;
   background-color: #454545;
   opacity: 0;
+}
+
+.walker__eyes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+
+  .walker__item.is-blink & {
+    opacity: 0;
+  }
+
+  &.walker__eyes--closed {
+    opacity: 0;
+
+    .walker__item.is-blink & {
+      opacity: 1;
+    }
+  }
 }
 
 .walker__item {
