@@ -24,8 +24,10 @@ import Heading from '../components/Heading.vue'
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  padding: 128px 0;
 
   @include bp(small) {
+    padding: 0;
     flex-direction: row;
   }
 }
@@ -36,7 +38,10 @@ import Heading from '../components/Heading.vue'
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 128px 0;
+
+  @include bp(small) {
+    padding: 128px 0;
+  }
 }
 
 .title-content__text {
