@@ -11,6 +11,7 @@
     <Walker>
       <Contact v-appear/>
     </Walker>
+    <SvgFilter/>
   </main>
 </template>
 
@@ -23,4 +24,5 @@ import Projects from '../components/Projects.vue'
 import Contact from '../components/Contact.vue'
 import Video from '../components/Video.vue'
 import Header from '../components/Header.vue'
+import SvgFilter from '../components/SvgFilter.vue'
 </script>

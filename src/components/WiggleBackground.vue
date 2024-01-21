@@ -5,12 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import * as PIXI from 'pixi.js'
-import {settings} from 'pixi.js'
 import {onMounted, ref} from 'vue'
 import {type Ref} from 'vue'
 
-const backgroundCanvas: Ref<HTMLElement | undefined> = ref()
+const backgroundCanvas: Ref<HTMLCanvasElement | undefined> = ref()
 const containerRef: Ref<HTMLElement | undefined> = ref()
 
 const varianceAmount = 3
@@ -18,57 +16,61 @@ const scale = .25
 
 const createRelativeShape = () => Array.from({ length: 8 }, () => Math.random() * varianceAmount)
 
-const drawRelativeShape = (graphic: PIXI.Graphics, width: number, height: number, shape: number[]) => {
+const drawRelativeShape = (ctx: CanvasRenderingContext2D, width: number, height: number, shape: number[]) => {
   const widthCenter = width * .5
   const heightCenter = height * .5
 
-  graphic.clear()
-  graphic.beginFill(0xcc456a, 1);
-  graphic.lineStyle(1, 0xcc456a, 1);
-  graphic.drawPolygon(
-      [
-        new PIXI.Point(widthCenter - (widthCenter - shape[0]), heightCenter - (heightCenter - shape[1])),
-        new PIXI.Point(widthCenter - (widthCenter - shape[2]), heightCenter + (heightCenter - shape[3])),
-        new PIXI.Point(widthCenter + (widthCenter - shape[4]), heightCenter + (heightCenter - shape[5])),
-        new PIXI.Point(widthCenter + (widthCenter - shape[6]), heightCenter - (heightCenter - shape[7])),
-      ]
-  );
-  graphic.scale.x = 1 / scale
-  graphic.scale.y = 1 / scale
-  graphic.endFill();
+  ctx.clearRect(0, 0, width, height)
+  ctx.beginPath()
+  ctx.fillStyle = '#cc456a'
+  ctx.filter = 'url(#crisp)'
+  ctx.moveTo(widthCenter - (widthCenter - shape[0]), heightCenter - (heightCenter - shape[1]))
+  ctx.lineTo(widthCenter - (widthCenter - shape[2]), heightCenter + (heightCenter - shape[3]))
+  ctx.lineTo(widthCenter + (widthCenter - shape[4]), heightCenter + (heightCenter - shape[5]))
+  ctx.lineTo(widthCenter + (widthCenter - shape[6]), heightCenter - (heightCenter - shape[7]))
+  ctx.fill()
 }
 
 const frame = ref(0)
 
 onMounted(() => {
-  settings.CAN_UPLOAD_SAME_BUFFER = false
+  if (containerRef.value && backgroundCanvas.value) {
+    const ctx = backgroundCanvas.value.getContext('2d')
+    if (ctx) {
+      ctx.imageSmoothingEnabled = false
+      backgroundCanvas.value.width = containerRef.value?.offsetWidth * scale
+      backgroundCanvas.value.height = containerRef.value?.offsetHeight * scale
 
-  const app = new PIXI.Application({
-    view: backgroundCanvas.value as unknown as PIXI.ICanvas,
-    resizeTo: containerRef.value as HTMLElement,
-    backgroundAlpha: 0,
-    resolution: scale,
-  });
+      const shapes = Array.from({ length: 3 }, () => createRelativeShape())
 
-  const graphic = new PIXI.Graphics();
-  const shapes = Array.from({ length: 3 }, () => createRelativeShape())
+      drawRelativeShape(ctx, backgroundCanvas.value.width, backgroundCanvas.value.height, shapes[0])
 
-  drawRelativeShape(graphic, app.view.width, app.view.height, shapes[0])
+      const render = (increaseFrame: boolean = true) => {
+        if (backgroundCanvas.value) {
+          if (increaseFrame) {
+            frame.value++;
+          }
 
-  app.stage.addChild(graphic);
+          drawRelativeShape(ctx, backgroundCanvas.value.width, backgroundCanvas.value.height, shapes[frame.value % 3])
+        }
+      }
 
-  const render = () => {
-    frame.value++;
+      const renderLoop = () => {
+        render()
+        setTimeout(renderLoop, 200)
+      }
 
-    drawRelativeShape(graphic, app.view.width, app.view.height, shapes[frame.value % 3])
+      renderLoop()
+
+      window.addEventListener('resize', () => {
+        if (containerRef.value && backgroundCanvas.value) {
+          backgroundCanvas.value.width = containerRef.value.offsetWidth * scale
+          backgroundCanvas.value.height = containerRef.value.offsetHeight * scale
+          render(false)
+        }
+      })
+    }
   }
-
-  const renderLoop = () => {
-    render()
-    setTimeout(renderLoop, 200)
-  }
-
-  renderLoop()
 })
 </script>
 
