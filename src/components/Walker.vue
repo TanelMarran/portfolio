@@ -48,7 +48,9 @@ const currentFrame = ref(0)
 
 const currentFrameComputed = computed(() => Math.floor(currentFrame.value % 2))
 
-const tick = () => {
+const tick = (timestamp: number, previousTimestamp: number) => {
+  const delta = (timestamp - previousTimestamp) / 16
+
   if (targetRef.value && walkerRef.value) {
     const targetTop = targetRef.value.offsetTop
     const targetBottom = targetRef.value.offsetTop + targetRef.value.offsetHeight
@@ -61,13 +63,13 @@ const tick = () => {
 
     const targetDiff = walkerTargetSpeed.value - walkerSpeed.value
 
-    walkerSpeed.value += Math.min(Math.abs(targetDiff), walkerAcceleration) * Math.sign(targetDiff)
+    walkerSpeed.value += Math.min(Math.abs(targetDiff), walkerAcceleration * delta) * Math.sign(targetDiff)
 
     walkerSpeed.value = Math.min(Math.max(walkerSpeed.value, -maxSpeed), maxSpeed)
 
-    walkerPosition.value += walkerSpeed.value
+    walkerPosition.value += walkerSpeed.value * delta
 
-    currentFrame.value += walkerSpeed.value != 0 || currentFrameComputed.value != 0 ? .2 : 0
+    currentFrame.value += walkerSpeed.value != 0 || currentFrameComputed.value != 0 ? .2 * delta : 0
 
     blinkTimer.value -= 1
 
@@ -81,13 +83,13 @@ const tick = () => {
     }
   }
 
-  tickTimeout = requestAnimationFrame(tick)
+  tickTimeout = requestAnimationFrame((newTimestamp) => tick(newTimestamp, timestamp))
 }
 
 let tickTimeout: number | null = null
 
 onMounted(() => {
-  tickTimeout = requestAnimationFrame(tick)
+  tickTimeout = requestAnimationFrame((timestamp) => tick(timestamp, timestamp))
 })
 
 onUnmounted(() => {
