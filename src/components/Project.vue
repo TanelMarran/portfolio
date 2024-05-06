@@ -21,7 +21,7 @@
               <div class="project__meta-value">{{ meta.value }}</div>
             </div>
           </div>
-          <Button class="project__button" v-if="props.button" :href="props.button.link">
+          <Button class="project__button" v-if="props.button" :href="props.button.link" target="_blank">
             {{ props.button.text }}
             <ArrowRightSvg class="ml-2"/>
           </Button>

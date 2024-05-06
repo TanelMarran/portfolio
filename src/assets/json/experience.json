@@ -69,6 +69,44 @@
       "icon": "website",
       "items": [
         {
+          "title": "Forus",
+          "text": "Full-stack Wordpress custom theme for a security and transport provider",
+          "image": "forus.png",
+          "button": {
+            "text": "View site",
+            "link": "https://forus.ee/"
+          },
+          "meta": [
+            {
+              "label": "Technology",
+              "value": "Wordpress"
+            },
+            {
+              "label": "Role",
+              "value": "Full-stack"
+            }
+          ]
+        },
+        {
+          "title": "INZMO",
+          "text": "A new website built from the ground up using Strapi and Next.js for an insurance provider located in Germany",
+          "image": "inzmo.png",
+          "button": {
+            "text": "View site",
+            "link": "https://inzmo.com"
+          },
+          "meta": [
+            {
+              "label": "Technology",
+              "value": "Next.js"
+            },
+            {
+              "label": "Role",
+              "value": "Full-stack"
+            }
+          ]
+        },
+        {
           "title": "Viidumetsa",
           "text": "Real-estate development with a configurator used to change plot features to user's liking",
           "image": "viidumetsa.png",
