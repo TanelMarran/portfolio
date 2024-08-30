@@ -8,7 +8,7 @@
     <div class="title-content h-height-vh">
       <h1>My name is <br><mark>Tanel Marran</mark></h1>
       <p class="title-content__text text-large mt-2">
-        I am a web developer, game programmer and pixel artist currently based in Tartu, Estonia.
+        I am a web developer, game programmer and pixel artist currently based in Malmö, Sweden.
       </p>
     </div>
   </div>

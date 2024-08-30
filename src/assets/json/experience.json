@@ -6,6 +6,25 @@
       "icon": "controller",
       "items": [
         {
+          "title": "Move on",
+          "text": "Farming platformer game made for the 2024 GMTK Game Jam",
+          "image": "move-on.png",
+          "button": {
+            "text": "View game",
+            "link": "https://forestherd.itch.io/move-on"
+          },
+          "meta": [
+            {
+              "label": "Engine",
+              "value": "Godot 4"
+            },
+            {
+              "label": "Role",
+              "value": "Solo project"
+            }
+          ]
+        },
+        {
           "title": "Waterbed",
           "text": "A short narrative horror game about learning that missteps happen",
           "image": "waterbed.png",
