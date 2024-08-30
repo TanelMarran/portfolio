@@ -4,6 +4,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import appear from './directives/appear'
+import { createHead } from 'unhead'
+
+createHead()
 
 const app = createApp(App)
 
