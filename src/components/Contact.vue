@@ -23,7 +23,6 @@
                   <LinkedInSvg v-if="link.icon === 'linkedin'" class="contact__icon"/>
                   <ItchSvg v-else-if="link.icon === 'itch'" class="contact__icon"/>
                   <GitHubSvg v-else-if="link.icon === 'github'" class="contact__icon"/>
-                  <CoHostSvg v-else-if="link.icon === 'cohost'" class="contact__icon"/>
                   {{ link.text }}
                 </a>
               </li>
@@ -40,7 +39,6 @@ import data from '@/assets/json/contact.json'
 import Heading from '@/components/Heading.vue'
 import EmailSvg from '@/assets/images/email.svg'
 import LinkedInSvg from '@/assets/images/linkedin.svg'
-import CoHostSvg from '@/assets/images/cohost.svg'
 import GitHubSvg from '@/assets/images/github.svg'
 import ItchSvg from '@/assets/images/itch.svg'
 import {computed} from 'vue'
